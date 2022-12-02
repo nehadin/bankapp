@@ -1,0 +1,28 @@
+DATA BININDING IN ANGULAR
+...........................
+
+ts file >> Component
+html file >> View
+
+
+1.  ONE WAY BININDING
+    a) Component to View
+        - String interpollation  - Operator {{}}       {{data}}
+        - Property binding       - [propert]="value"       [placeholder]="data"
+
+    b) View to component
+        - Event binding         - (event_name)="fun/method name()"          -(click)="login()"
+        - Event binding using '$event'            (eventname)="methodname($event)"
+        - event biniding using template rendering variable #variable
+
+2.  TWO WAY BINDING 
+    a) ngmodel              [(ngmodel)]="value"
+                    FormsModule(has to be imported-3rd party library)
+
+
+REDIRECTION IN ANGULAR
+...............................
+
+navigateByUrl       -   method used to Redirection
+router              -   class
+AppRoutingModule    -   Module
