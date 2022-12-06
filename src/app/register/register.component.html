@@ -1,0 +1,23 @@
+<!-- acno -->
+<div class="container w-50 p-3 mt-5" style="border-radius:20px;  width: 40%; background-color: rgba(103, 79, 43, 0.427);">
+    <h1 class="text-center mb-3" style="font-family:calibri ; color:blanchedalmond;">
+        Registration Form
+    </h1>
+    <!--Accounte number and username -->
+    <form action=""class="text-center mt-2 p-2" >
+        <div>
+            <input id="ac" name="acno" [(ngModel)]="acno" type="text" class="form-control mb-3" placeholder="Account number">
+        </div>
+        <div>
+            <input id="uname" name="uname" [(ngModel)]="uname" type="text" class="form-control mb-3" placeholder="Username">
+        </div>
+        <!-- password -->
+        <div>
+            <input id="psw" name="psw" [(ngModel)]="psw" type="password" class="form-control mb-3" placeholder="Password">
+        </div>
+        <!-- button register -->
+        <div><button type="submit" class="btn btn-secondary" (click)="register()">Register</button> </div>
+
+    </form>
+</div>
+
