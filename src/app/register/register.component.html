@@ -4,7 +4,7 @@
         Registration Form
     </h1>
     <!--Accounte number and username -->
-    <form action=""class="text-center mt-2 p-2" >
+    <form action=""class="text-center mt-2 p-2" (ngSubmit)="register()">
         <div>
             <input id="ac" name="acno" [(ngModel)]="acno" type="text" class="form-control mb-3" placeholder="Account number">
         </div>

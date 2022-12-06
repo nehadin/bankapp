@@ -1,1 +1,46 @@
-<p>dashboard works!</p>
+<div class="mt-3">
+        
+    <form action="" (ngSubmit)="deposit()" class=" border w-50 container p-3 rounded" style="background-color: rgba(36, 5, 74, 0.338);">
+        <h1 class="text-center mb-3 text-light">Deposit form</h1>
+        <div class="p-2 mt-2">
+            
+            <input type="text" id="acno" [(ngModel)]="acno" class="form-control"  name="acno"  placeholder="Acccount number">
+        </div>
+        <div class="p-2 mt-2">
+            
+            <input type="password" id="psw" [(ngModel)]="psw" class="form-control" name="psw" placeholder="Password" >
+        </div>
+        <div class="p-2 mt-2">
+            
+            <input type="number" id="amnt" [(ngModel)]="amnt" class="form-control" name="amnt" placeholder="Deposit amount" >
+        </div>
+        <div class="p-2 mt-2 text-center">
+            <button class="btn btn-danger me-2" type="submit">Deposit</button>
+            
+        </div>
+    </form>
+</div>
+
+<div class="mt-4">
+        
+    <form action="" (ngSubmit)="withdraw()" class=" border w-50 container p-3 rounded" style="background-color: rgba(4, 52, 29, 0.392);">
+        <h1 class="text-center mb-3 text-light">Withdraw form</h1>
+        <div class="p-2 mt-2">
+            
+            <input type="text" id="acc" [(ngModel)]="acc" class="form-control"  name="acc"  placeholder="Acccount number">
+        </div>
+        <div class="p-2 mt-2">
+            
+            <input type="password" id="ps" [(ngModel)]="ps" class="form-control" name="ps" placeholder="Password" >
+        </div>
+        <div class="p-2 mt-2">
+            
+            <input type="number" id="wit" [(ngModel)]="wit" class="form-control" name="wit" placeholder="Withdrawal amount" >
+        </div>
+        <div class="p-2 mt-2 text-center">
+            <button class="btn btn-danger me-2" type="submit">Withdraw</button>
+            
+        </div>
+    </form>
+</div>
+
