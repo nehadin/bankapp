@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ɵNgNoValidate } from '@angular/forms';
 import { DataService } from '../services/data.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-dashboard',
@@ -15,14 +16,19 @@ export class DashboardComponent {
   ps = ''
   wit = ''
 
-  constructor(private ds: DataService) { }
+  user=''
+
+  constructor(private ds: DataService) {
+    //access username
+    this.user=this.ds.currentuser
+   }
 
   deposit() {
     var acno = this.acno
     var psw = this.psw
     var amnt = this.amnt
 
-    const result = this.ds.deposit(acno, psw, amnt)
+    const result = this.ds.deposit(acno, psw, amnt) // callin the function in DataService
 
     if (result) {
       alert(`${amnt} credited to your account, Balance is ${result}`)
@@ -40,10 +46,8 @@ export class DashboardComponent {
     const result = this.ds.withdraw(acc, ps, wit)
 
     if (result) {
-      alert(`${wit} withdraw from your account, Balance is ${result}`)
-    } else {
-      alert('Incorrect Account number/Password')
-    }
+      alert(`${wit} is debited, Balance is ${result}`)
+    } 
   }
 
 }

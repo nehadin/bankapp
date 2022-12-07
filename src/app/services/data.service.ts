@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  currentuser=' '
   constructor() { }
 
   userDetails: any = {
@@ -31,6 +32,8 @@ export class DataService {
     var userDetails = this.userDetails
     if (acno in userDetails) {
       if (psw == userDetails[acno]["password"]) {
+        //Store name
+        this.currentuser=userDetails[acno]['username']
         return true
       } else {
         return false
@@ -55,17 +58,24 @@ export class DataService {
     }
   }
 
-  withdraw(acno:any,password:any,amount:any){
+  withdraw(acno: any, password: any, amount: any) {
     var userDetails = this.userDetails
-    var wit=parseInt(amount)
-    if(acno in userDetails){
-      if(password==userDetails[acno]["password"]){
-        userDetails[acno]["balance"]-=wit
-        return userDetails[acno]["balance"]
-      }else{
+    var wit = parseInt(amount)
+    if (acno in userDetails) {
+      if (password == userDetails[acno]["password"]) {
+        if (wit <= userDetails[acno]["balance"]) {
+          userDetails[acno]["balance"] -= wit
+          return userDetails[acno]["balance"]
+        } else {
+          alert('Insufficient balance')
+          return false
+        }
+      } else {
+        alert('Incorrect Password')
         return false
       }
-    }else{
+    } else {
+      alert("Incorrect Ac. No.")
       return false
     }
   }
