@@ -1,6 +1,6 @@
 <div class="text-center mt-3 mb-3 p-3 w-50 container" style="border-radius: 10px; background-color: rgba(142, 135, 115, 0.412); ">
     <h3>Transaction History</h3>
-    <table class="table table-sm container w-50 text-center table-striped border-success table-hover" >
+    <table class="table table-sm container w-50 text-center table-striped border-success table-hover border " >
         <thead class="table-success">
             <tr>
                 <th>Type</th>
@@ -8,14 +8,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Debit</td>
-                <td>1000</td>
+            <tr *ngFor="let i of transaction">          <!--i will access the objects in transaction array-->
+                <td>{{i.type}}</td>
+                <td>{{i.amount}}</td>
             </tr>
-            <tr>
-                <td>Credit</td>
-                <td>100</td>
-            </tr>
+            
         </tbody>
     </table>
 </div>

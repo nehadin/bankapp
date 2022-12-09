@@ -46,7 +46,6 @@ AppRoutingModule    -   Module
 
     Angualr Services
 ..........................
-
 Services can be accessed by any component
 
 while creating a component - a folder will be created along with 4 files-html,css,ts and ts config
@@ -55,4 +54,25 @@ it will have 2 files- ts & ts config
 
 
 >> inside the folder, in terminal  >> 
-                   command      :         ng g s Servicename       // creates a service
+                   >>>>         ng g s Servicename       // Syntax to creates a service
+
+
+
+    Angular Directives
+...............................
+1) Structural directived - to handel structured datas in view of a component
+
+    -ngFor  (this structural directive can be directly used/applied in HTML docs to access elemnts from array)
+
+
+
+    Form Validation In Angular
+.....................................
+Forms are created in 2 ways:
+                1) Template Driven Form
+                2) Model Driven Form
+
+* Template driven form - Forms created using HTML, normal HTML Forms, where we can bind data using binding methods, Ngmodel, etc. 
+    But in the data validation is difficlut process
+
+* Model Driven Form - 
