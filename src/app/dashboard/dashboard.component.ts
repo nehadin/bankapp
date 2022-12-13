@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ɵNgNoValidate } from '@angular/forms';
+import { FormBuilder, ɵNgNoValidate } from '@angular/forms';
 import { DataService } from '../services/data.service';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-dashboard',
@@ -9,24 +9,22 @@ import {Router} from '@angular/router'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  acno = ''
-  psw = ''
-  amnt = ''
-  acc = ''
-  ps = ''
-  wit = ''
 
-  user=''
 
-  constructor(private ds: DataService) {
+  user = ''
+
+  constructor(private ds: DataService, private fb: FormBuilder) {
     //access username
-    this.user=this.ds.currentuser
-   }
+    this.user = this.ds.currentuser
+  }
+
+  depositform = this.fb.group({ acno: [''], psw: [''], amnt: [''] })
+  withdrawform = this.fb.group({ acc: [''], ps: [''], wit: [''] })
 
   deposit() {
-    var acno = this.acno
-    var psw = this.psw
-    var amnt = this.amnt
+    var acno = this.depositform.value.acno
+    var psw = this.depositform.value.psw
+    var amnt = this.depositform.value.amnt
 
     const result = this.ds.deposit(acno, psw, amnt) // callin the function in DataService
 
@@ -39,15 +37,15 @@ export class DashboardComponent {
   }
 
   withdraw() {
-    var acc = this.acc
-    var ps = this.ps
-    var wit = this.wit
+    var acc = this.withdrawform.value.acc
+    var ps = this.withdrawform.value.ps
+    var wit = this.withdrawform.value.wit
 
     const result = this.ds.withdraw(acc, ps, wit)
 
     if (result) {
       alert(`${wit} is debited, Balance is ${result}`)
-    } 
+    }
   }
 
 }

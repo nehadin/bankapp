@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,20 +10,25 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  uname=''
-  acno=''
-  psw=''
 
-  constructor(private ds:DataService,private router:Router){
+
+  constructor(private ds: DataService, private router: Router, private fb: FormBuilder) {
 
   }
+  //FormBuilder class is injected
+  //the group is Declared with the form name'registerForm' and array is created and intialized as empty array....now to get the control to store the uname,acno& psw data
+  //the connection will be done in HTML file
+  registerForm = this.fb.group({ 
+    uname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+')]], 
+    acno: ['',[Validators.required,Validators.pattern('[0-9]+')]], 
+    psw: ['',[Validators.required,Validators.pattern('[0-9]+')]] })
 
-  register(){
-    var uname=this.uname
-    var acno=this.acno
-    var psw=this.psw
+  register() {
+    var uname = this.registerForm.value.uname
+    var acno = this.registerForm.value.acno
+    var psw = this.registerForm.value.psw
 
-    const result=this.ds.register(acno,uname,psw)
+    const result = this.ds.register(acno, uname, psw)
 
     if (result) {
       alert('registeration success')

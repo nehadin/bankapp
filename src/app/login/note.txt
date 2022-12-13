@@ -72,7 +72,24 @@ Forms are created in 2 ways:
                 1) Template Driven Form
                 2) Model Driven Form
 
-* Template driven form - Forms created using HTML, normal HTML Forms, where we can bind data using binding methods, Ngmodel, etc. 
-    But in the data validation is difficlut process
+* Template driven form - Forms created using HTML, normal HTML Forms, where we can bind data using binding methods,Ngmodel,etc.,
+    But the data validation will be difficlut.
 
 * Model Driven Form - 
+        -Method used for creating Model driven form
+               Reactive form
+        -----------------------------
+            - ReactiveFormsModule    -    Module used to create Mdel driven form (this will be added in 'app.module.ts' in 'imports:' section)
+            - FormBuilder   -   Reactive form module's Class 
+                                the class will have a group, an array and control already inside it
+                                this class will be injected in the ts file of Form within in constructor(Private fb:FormBuilder)
+        inject dependency in ts file - declare form name and its group,array after the constructor - update the input value inside the function -
+        in HTml file, create the connection control using, '[FormGroup]' and value 'declared form name' - 
+
+
+    Local Storage in Angular
+.....................................
+
+- Store     localStorage.setItem()
+- Access    localStorage.getItem()
+- Delete    localStorage.getItem()
