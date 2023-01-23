@@ -24,24 +24,39 @@ export class LoginComponent implements OnInit {
 
   }
 
-
+  
   ngOnInit(): void {
 
   }
 
-  loginform = this.fb.group({ acno: [''], psw: [''] })
+  loginform = this.fb.group({ 
+    acno: [''], 
+    psw: [''] 
+  })
 
-  login(): void {
+  login() {
     var acno = this.loginform.value.acno
     var psw = this.loginform.value.psw
 
-    const result = this.ds.login(acno, psw)
-    if (result) {
-      alert("Login Success")
-      this.router.navigateByUrl('dashboard')
-    } else {
+    if (this.loginform.valid) {
+      this.ds.login(acno, psw).subscribe((result: any) => {
+
+        localStorage.setItem('currentacno', JSON.stringify(result.currentAcno))
+        localStorage.setItem('currentuser', JSON.stringify(result.currentUser))
+        localStorage.setItem('token', JSON.stringify(result.token))
+
+        alert(result.message)
+        this.router.navigateByUrl('dashboard')
+
+      },
+        result => {
+          alert(result.error.message)
+        })
+    }
+    else {
       alert("Incorrect username/password")
     }
+
   }
 
   // login(a:any,b:any) {
